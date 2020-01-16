@@ -26,7 +26,18 @@ class DivisionsController < ApplicationController
 
   def show
     @division = Division.find(params[:id])
-    render :show
+    @employees = @division.employees
+    if params[:sort]
+      case params[:sort]
+      when 'tenure'
+        @employees = Employee.tenure(@division.id)
+      when 'newest'
+        @employees = Employee.newest(@division.id)
+      else
+        @employees = @division.employees
+      end
+      render :show
+    end
   end
 
   def update

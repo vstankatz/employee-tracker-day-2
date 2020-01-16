@@ -1,7 +1,11 @@
 
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all
+    if params[:letter]
+      @employees = Employee.start_letter(params[:letter])
+    else
+      @employees = Employee.all
+    end
     render :index
   end
 
