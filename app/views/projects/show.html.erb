@@ -1,7 +1,6 @@
 <h1>Project: <%= @project.name %></h1>
 
 <%if @project.employees.any?%>
-<br>
 <ul>
   <%@project.employees.each do |employee|%>
   <li><%= link_to employee.name, employee_path(employee)%></li>
