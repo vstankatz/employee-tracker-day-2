@@ -29,6 +29,7 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
+    @division = Division.find(@employee.division_id)
     render :show
   end
 
