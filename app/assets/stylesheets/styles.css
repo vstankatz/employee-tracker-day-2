@@ -9,3 +9,48 @@ h2 {
 body {
   background-color: ;
 }
+
+.nav-bar {
+  width: 100;
+  text-align: center;
+  background-color: pink;
+  height: 50px;
+  overflow: hidden;
+}
+
+.greeting {
+  margin: 30px;
+  padding: 50px;
+  text-align: center;
+}
+
+.content {
+  padding: 10px 15%;
+  margin-left: ;
+}
+
+.letters td {
+  font-size: 12px;
+  padding: 6px;
+  text-align: center;
+}
+
+.employees {
+  margin-bottom: 0;
+}
+
+.options {
+  text-align: center;
+}
+
+.options h5 {
+  display: inline-block;
+}
+
+p {
+  text-align: center;
+  background-color: lightblue;
+  margin: 15px 18%;
+  border-radius: 10px;
+  padding: 8px;
+}
