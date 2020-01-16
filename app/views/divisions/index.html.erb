@@ -1,10 +1,15 @@
-<%if @divisions.any?%>
-<ul>
-  <%@divisions.each do |division|%>
-  <li><%= link_to division.name, division_path(division)%></li>
+<div class="jumbotron">
+  <h1>All Divisions</h1>
+</div>
+<div class="content">
+  <%if @divisions.any?%>
+  <ul>
+    <%@divisions.each do |division|%>
+    <li><%= link_to division.name, division_path(division)%></li>
+    <%end%>
+  </ul>
+  <%else%>
+  <p>No divisions to display.</p>
   <%end%>
-</ul>
-<%else%>
-<p>No divisions to display.</p>
-<%end%>
-<p><%= link_to "Create new division", new_division_path %></p>
+  <p><%= link_to "Create new division", new_division_path %></p>
+</div>

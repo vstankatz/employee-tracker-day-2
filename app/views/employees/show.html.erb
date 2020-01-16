@@ -1,16 +1,19 @@
-<h1>Employee: <%= @employee.name %></h1>
-<h2>Division: <%= link_to @division.name, division_path(@division)%></h2>
-
-<%if @employee.projects.any?%>
-<ul>
-  <%@employee.projects.each do |project|%>
-  <li><%= link_to project.name, project_path(project)%></li>
+<div class="jumbotron">
+  <h1>Employee: <%= @employee.name %></h1>
+  <h2>Division: <%= link_to @division.name, division_path(@division)%></h2>
+</div>
+<div class="content">
+  <%if @employee.projects.any?%>
+  <ul>
+    <%@employee.projects.each do |project|%>
+    <li><%= link_to project.name, project_path(project)%></li>
+    <%end%>
+  </ul>
+  <%else%>
+  <p>No projects to display.</p>
   <%end%>
-</ul>
-<%else%>
-<p>No projects to display.</p>
-<%end%>
-<p><%= link_to "Edit employee", edit_employee_path(@employee)%></p>
-<p><%= link_to "Delete employee", employee_path(@employee),
-  :data => {:confirm => "Are you sure?",
-  :method => "delete"} %></p>
+  <p><%= link_to "Edit employee", edit_employee_path(@employee)%></p>
+  <p><%= link_to "Delete employee", employee_path(@employee),
+    :data => {:confirm => "Are you sure?",
+    :method => "delete"} %></p>
+</div>

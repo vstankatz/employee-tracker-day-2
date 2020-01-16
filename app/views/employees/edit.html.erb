@@ -1,11 +1,15 @@
-<h2>Edit Employee</h2>
-<%=form_for @employee do |f|%>
-<%=f.label :Name%>
-<%=f.text_field :name%>
-<%= f.label :projects %><br />
-<% for project in Project.all %>
-<%= check_box_tag "[project_ids][]", project.id, @employee.projects.include?(project) %>
-<%=h project.name %><br />
-<% end %>
-<%=f.submit%>
-<%end%>
+<div class="jumbotron">
+  <h2>Edit Employee</h2>
+</div>
+<div class="content">
+  <%=form_for @employee do |f|%>
+  <%=f.label :Name%>
+  <%=f.text_field :name%>
+  <%= f.label :projects %><br />
+  <% for project in Project.all %>
+  <%= check_box_tag "[project_ids][]", project.id, @employee.projects.include?(project) %>
+  <%=h project.name %><br />
+  <% end %>
+  <%=f.submit%>
+  <%end%>
+</div>

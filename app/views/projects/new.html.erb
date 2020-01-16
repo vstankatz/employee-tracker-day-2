@@ -1,7 +1,11 @@
 <%= render "layouts/errors", :object => @project %>
-<h2>New Project</h2>
-<%=form_for @project do |f|%>
-<%=f.label :Name%>
-<%=f.text_field :name%>
-<%=f.submit%>
-<%end%>
+<div class="jumbotron">
+  <h2>New Project</h2>
+</div>
+<div class="content">
+  <%=form_for @project do |f|%>
+  <%=f.label :Name%>
+  <%=f.text_field :name%>
+  <%=f.submit%>
+  <%end%>
+</div>

@@ -1,11 +1,32 @@
-<%= render "layouts/errors", :object => @employee %>
-<%if @employees.any?%>
-<ul>
-  <%@employees.each do |employee|%>
-  <li><%= link_to employee.name, employee_path(employee)%></li>
+<div class="jumbotron employees">
+  <h1>All Employees</h1>
+</div>
+
+<div class="letters">
+  <% letters1 = ('A'..'M').to_a %>
+  <% letters2 = ('N'..'Z').to_a %>
+  <table class="table">
+    <tr>
+      <%letters1.each do |letter|%>
+        <td><%= link_to "#{letter}", employees_path(:letter => letter)%></td>
+      <%end%>
+    </tr>
+    <tr>
+      <%letters2.each do |letter|%>
+        <td><%= link_to "#{letter}", employees_path(:letter => letter)%></td>
+      <%end%>
+    </tr>
+  </table>
+</div>
+<div class="content">
+  <%if @employees.any?%>
+  <ul>
+    <%@employees.each do |employee|%>
+    <li><%= link_to employee.name, employee_path(employee)%></li>
+    <%end%>
+  </ul>
+  <%else%>
+  <p>No employees to display.</p>
   <%end%>
-</ul>
-<%else%>
-<p>No employees to display.</p>
-<%end%>
-<p><%= link_to "Create new employee", new_employee_path %></p>
+  <p><%= link_to "Create new employee", new_employee_path %></p>
+</div>

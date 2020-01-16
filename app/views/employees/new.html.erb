@@ -1,17 +1,21 @@
 <%= render "layouts/errors", :object => @employee %>
-<h2>New Employee</h2>
-<%=form_for @employee do |f|%>
-<%=f.label :Name%>
-<%=f.text_field :name%>
-<% if params[:division_id] %>
+<div class="jumbotron">
+  <h2>New Employee</h2>
+</div>
+<div class="content">
+  <%=form_for @employee do |f|%>
+  <%=f.label :Name%>
+  <%=f.text_field :name%>
+  <% if params[:division_id] %>
   <input type="hidden" id="division_id" name="employee[division_id]" value='<%="#{params[:division_id]}"%>'>
   <%f.text_field :name%>
-<% else %>
-<select name="employee[division_id]">
-   <%= @divisions.each do |division| %>
-     <option value="<%= division.id %>"><%= division.name %></option>
-   <% end %>
- </select>
- <%end%>
-<%=f.submit%>
-<%end%>
+  <% else %>
+  <select name="employee[division_id]">
+    <%= @divisions.each do |division| %>
+    <option value="<%= division.id %>"><%= division.name %></option>
+    <% end %>
+  </select>
+  <%end%>
+  <%=f.submit%>
+  <%end%>
+</div>

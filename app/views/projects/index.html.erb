@@ -1,11 +1,15 @@
-<%if @projects.any?%>
-<br>
-<ul>
-  <%@projects.each do |project|%>
-  <li><%= link_to project.name, project_path(project)%></li>
-<%end%>
-</ul>
-<%else%>
-<p>No projects to display.</p>
-<%end%>
-<p><%= link_to "Create new project", new_project_path %></p>
+<div class="jumbotron">
+  <h1>All Projects</h1>
+</div>
+<div class="content">
+  <%if @projects.any?%>
+  <ul>
+    <%@projects.each do |project|%>
+    <li><%= link_to project.name, project_path(project)%></li>
+    <%end%>
+  </ul>
+  <%else%>
+  <p>No projects to display.</p>
+  <%end%>
+  <p><%= link_to "Create new project", new_project_path %></p>
+</div>

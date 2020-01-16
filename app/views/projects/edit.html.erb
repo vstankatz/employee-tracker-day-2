@@ -1,14 +1,18 @@
 <%= render "layouts/errors", :object => @project %>
-<h2>Edit Project</h2>
-<%=form_for @project do |f|%>
-<%=f.label :Name%>
-<%=f.text_field :name%>
-<%= f.label :employees %><br />
-<% for employee in Employee.all %>
-<%= check_box_tag "[employee_ids][]", employee.id, @project.employees.include?(employee) %>
-<%=h employee.name %><br />
-<% end %>
-<div class="actions">
-  <%= f.submit %>
+<div class="jumbotron">
+  <h2>Edit Project</h2>
 </div>
-<% end %>
+<div class="content">
+  <%=form_for @project do |f|%>
+  <%=f.label :Name%>
+  <%=f.text_field :name%>
+  <%= f.label :employees %><br />
+  <% for employee in Employee.all %>
+  <%= check_box_tag "[employee_ids][]", employee.id, @project.employees.include?(employee) %>
+  <%=h employee.name %><br />
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>

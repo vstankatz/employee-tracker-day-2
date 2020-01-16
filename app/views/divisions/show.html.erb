@@ -1,16 +1,27 @@
-<h1>Division: <%= @division.name %></h1>
-
-<%if @division.employees.any?%>
-<ul>
-  <%@division.employees.each do |employee|%>
-  <li><%= link_to employee.name, employee_path(employee)%></li>
+<div class="jumbotron">
+  <h1>Division: <%= @division.name %></h1>
+</div>
+<div class="options">
+  <h5>Order By:</h5>
+  <select onChange="window.document.location.href=this.options[this.selectedIndex].value;">
+    <option value="<%= division_path %>" selected>Select</option>
+    <option value="<%= division_path %>?sort=tenure">Tenure</option>
+    <option value="<%= division_path %>?sort=newest">Newest</option>
+  </select>
+</div>
+<div class="content">
+  <%if @employees.any?%>
+  <ul>
+    <%@employees.each do |employee|%>
+    <li><%= link_to employee.name, employee_path(employee)%></li>
+    <%end%>
+  </ul>
+  <%else%>
+  <p>No employees to display.</p>
   <%end%>
-</ul>
-<%else%>
-<p>No employees to display.</p>
-<%end%>
-<p><%= link_to "Edit division", edit_division_path(@division)%></p>
-<p><%= link_to "Delete division", division_path(@division),
-  :data => {:confirm => "Are you sure?",
-  :method => "delete"} %></p>
-<p><%= link_to "Create new employee", new_division_employee_path(@division) %></p>
+  <p><%= link_to "Edit division", edit_division_path(@division)%></p>
+  <p><%= link_to "Delete division", division_path(@division),
+    :data => {:confirm => "Are you sure?",
+    :method => "delete"} %></p>
+    <p><%= link_to "Create new employee", new_division_employee_path(@division) %></p>
+  </div>
