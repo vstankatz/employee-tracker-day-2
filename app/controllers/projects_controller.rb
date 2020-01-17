@@ -1,6 +1,9 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    if params[:most]
+      @projects = Project.most_employees
+    end
   end
 
   def new
@@ -29,17 +32,16 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    if params[:employee_ids]
-      employees = params[:employee_ids].map { |id| Employee.find(id.to_i) }
-      @project.employees.each do |employee|
-        if employees.exclude?(employee)
-          @project.employees.delete(employee)
-        end
+
+    employees = params[:employee_ids].map { |id| Employee.find(id.to_i) }
+    @project.employees.each do |employee|
+      if employees.exclude?(employee)
+        @project.employees.delete(employee)
       end
-      employees.each do |employee|
-        if @project.employees.exclude?(employee)
-          @project.employees << employee
-        end
+    end
+    employees.each do |employee|
+      if @project.employees.exclude?(employee)
+        @project.employees << employee
       end
     end
     if @project.update(project_params)

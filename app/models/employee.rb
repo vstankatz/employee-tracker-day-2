@@ -6,6 +6,7 @@ class Employee < ApplicationRecord
   before_save(:titleize_name)
 
   scope :start_letter, -> (letter_parameter) { where("name ilike ?", "#{letter_parameter}%")}
+  
   scope :most_projects, -> do (
     select("employees.id, employees.name, count(projects.id) as projects_count")
     .joins(:projects)
@@ -27,7 +28,7 @@ class Employee < ApplicationRecord
 
   private
   def titleize_name
-    self.name = self.name.split(' ').map! { |w|
+    self.name = self.name.split(' ').map { |w|
       (w[0] =~ /[a-z]/i) ? (w[0].upcase + w.slice(1, w.length)) : w
     }.join(' ')
   end

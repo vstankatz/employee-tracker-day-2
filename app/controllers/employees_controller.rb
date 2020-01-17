@@ -3,6 +3,8 @@ class EmployeesController < ApplicationController
   def index
     if params[:letter]
       @employees = Employee.start_letter(params[:letter])
+    elsif params[:most]
+      @employees = Employee.most_projects
     else
       @employees = Employee.all
     end
