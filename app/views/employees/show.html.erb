@@ -3,6 +3,9 @@
   <h2>Division: <%= link_to @division.name, division_path(@division)%></h2>
 </div>
 <div class="content">
+  <div class="image">
+    <img src="<%= @employee.image %>" alt="picture of <%= @employee.name %>">
+  </div>
   <%if @employee.projects.any?%>
   <ul>
     <%@employee.projects.each do |project|%>
