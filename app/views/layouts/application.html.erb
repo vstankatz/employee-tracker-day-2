@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>EmployeeTracker</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>EmployeeTracker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "bootstrap.min" %>
+    <%= stylesheet_link_tag "styles" %>
+  </head>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag "bootstrap.min" %>
-  <%= stylesheet_link_tag "styles" %>
-
-</head>
-
-<body>
-  <div class="nav-bar table-responsive">
-    <table class="table">
-      <th><%= link_to "HOME", '/'%></th>
-      <th><%= link_to "DIVISIONS", divisions_path%></th>
-      <th><%= link_to "PROJECTS", projects_path%></th>
-      <th><%= link_to "EMPLOYEES", employees_path%></th>
-    </table>
-  </div>
-  <%= flash[:alert] %>
-  <%= flash[:notice] %>
-  <%= yield %>
-</body>
+  <body>
+    <div class="nav-bar table-responsive">
+      <table class="table">
+        <th><%= link_to "HOME", '/'%></th>
+        <th><%= link_to "DIVISIONS", divisions_path%></th>
+        <th><%= link_to "PROJECTS", projects_path%></th>
+        <th><%= link_to "EMPLOYEES", employees_path%></th>
+      </table>
+    </div>
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+    <%= yield %>
+  </body>
 </html>

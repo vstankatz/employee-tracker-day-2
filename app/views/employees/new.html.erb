@@ -6,6 +6,8 @@
   <%=form_for @employee do |f|%>
   <%=f.label :Name%>
   <%=f.text_field :name%>
+  <%=f.label :Image_URL%>
+  <%=f.text_field :image%>
   <% if params[:division_id] %>
   <input type="hidden" id="division_id" name="employee[division_id]" value='<%="#{params[:division_id]}"%>'>
   <%f.text_field :name%>

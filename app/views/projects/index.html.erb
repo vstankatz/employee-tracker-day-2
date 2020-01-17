@@ -11,5 +11,8 @@
   <%else%>
   <p>No projects to display.</p>
   <%end%>
+  <div class="most">
+    <p><%= link_to "Top projects by number of employees", projects_path(:most => true)%></p>
+  </div>
   <p><%= link_to "Create new project", new_project_path %></p>
 </div>
