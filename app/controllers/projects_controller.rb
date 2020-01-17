@@ -32,7 +32,6 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-
     employees = params[:employee_ids].map { |id| Employee.find(id.to_i) }
     @project.employees.each do |employee|
       if employees.exclude?(employee)
