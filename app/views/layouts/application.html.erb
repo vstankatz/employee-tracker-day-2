@@ -16,6 +16,11 @@
         <th><%= link_to "DIVISIONS", divisions_path%></th>
         <th><%= link_to "PROJECTS", projects_path%></th>
         <th><%= link_to "EMPLOYEES", employees_path%></th>
+        <% if user_signed_in? %>
+        <th><%= link_to "Sign-Out", destroy_user_session_path, :method => :delete%></th>
+        <% else %>
+        <th><%= link_to "Sign-In/Sign-Up", new_user_session_path%></th>
+        <% end %>
       </table>
     </div>
     <%= flash[:alert] %>

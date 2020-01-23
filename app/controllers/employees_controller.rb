@@ -1,5 +1,5 @@
-
 class EmployeesController < ApplicationController
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     if params[:letter]
       @employees = Employee.start_letter(params[:letter])
